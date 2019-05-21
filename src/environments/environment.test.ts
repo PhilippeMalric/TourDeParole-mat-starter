@@ -7,13 +7,13 @@ export const environment = {
   test: true,
   i18nPrefix: '',
   firebaseConfig: {
-    apiKey: 'AIzaSyBwtKq2XQCF61Wj-4Ek3jTY1GH74PCo3Fk',
-    authDomain: 'matstarter-46ec0.firebaseapp.com',
-    databaseURL: 'https://matstarter-46ec0.firebaseio.com',
-    projectId: 'matstarter-46ec0',
-    storageBucket: 'matstarter-46ec0.appspot.com',
-    messagingSenderId: '298452491866',
-    appId: '1:298452491866:web:5dd35586b4352ba6'
+    apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    authDomain: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    databaseURL: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    projectId: 'xxxxxxxxxxxxxxxxxxxx',
+    storageBucket: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    messagingSenderId: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
+    appId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   },
   versions: {
     app: packageJson.version,
