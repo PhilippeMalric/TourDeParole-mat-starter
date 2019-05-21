@@ -3,6 +3,9 @@
     <div class="container">
       <h1>{{ 'anms.title.long' | translate }}</h1>
       <div class="actions">
+          <a [ngClass]="routeAnimationsElements" mat-raised-button class="actions-main" color="primary" routerLink="../home">
+            Home
+          </a>
         <a [ngClass]="routeAnimationsElements" mat-raised-button class="actions-main" color="primary" routerLink="../features">
           {{ 'anms.menu.features' | translate }}
         </a>

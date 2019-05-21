@@ -19,12 +19,16 @@ import { StockMarketService } from './stock-market/stock-market.service';
 import { ParentComponent } from './theming/parent/parent.component';
 import { ChildComponent } from './theming/child/child.component';
 import { CrudComponent } from './crud/components/crud.component';
+import { CrudComponent2 } from './crud2/components/crud.component2';
 import { BooksEffects } from './crud/books.effects';
 import { FormComponent } from './form/components/form.component';
 import { FormEffects } from './form/form.effects';
 import { AuthenticatedComponent } from './authenticated/authenticated.component';
 import { NotificationsComponent } from './notifications/components/notifications.component';
 import { ExamplesEffects } from './examples.effects';
+import { ParticipantsEffects } from './crud2/participants.effects';
+import { PostEffects } from './crud2/post.effects';
+import * as fromPost from './crud2/post.reducer';
 
 @NgModule({
   imports: [
@@ -44,7 +48,9 @@ import { ExamplesEffects } from './examples.effects';
       TodosEffects,
       StockMarketEffects,
       BooksEffects,
-      FormEffects
+      FormEffects,
+      ParticipantsEffects,
+      PostEffects
     ])
   ],
   declarations: [
@@ -55,6 +61,7 @@ import { ExamplesEffects } from './examples.effects';
     ChildComponent,
     AuthenticatedComponent,
     CrudComponent,
+    CrudComponent2,
     FormComponent,
     NotificationsComponent
   ],

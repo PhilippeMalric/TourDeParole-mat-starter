@@ -1,0 +1,81 @@
+h1 {
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+mat-card {
+  margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.mat-fab {
+  .fa-icon {
+    position: relative;
+    top: 4px;
+  }
+}
+
+.add {
+  margin: 20px auto 0;
+  display: block;
+}
+
+.col-md-6 {
+  margin-bottom: 20px;
+}
+
+mat-card-red {
+  margin: 0 0 10px 0;
+  cursor: pointer;
+  background-color: red;
+}
+
+mat-table {
+  margin: auto;
+  width: fit-content;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 50%;
+}
+td.mat-cell:first-of-type {
+  padding-left: 0px;
+}
+
+th.mat-header-cell {
+  padding-left: 10px;
+}
+
+/deep/.mat-header-cell {
+  font-size: 20px;
+}
+
+tr.mat-header-row {
+  height: 25px;
+}
+tr.mat-row {
+  height: 25px;
+}
+
+.mat-table {
+  margin-bottom: 20px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.minw {
+  min-width: 100px;
+}
+
+/deep/ .mat-sort-header-container {
+  justify-content: center;
+}

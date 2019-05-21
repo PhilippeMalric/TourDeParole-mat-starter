@@ -3,8 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
 import { FeaturesComponent } from './features/features.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { title: 'anms.menu.home' }
+  },
   {
     path: 'about',
     component: AboutComponent,

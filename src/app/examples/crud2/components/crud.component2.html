@@ -1,0 +1,131 @@
+<div class="container" rtl>
+  <h1>{{ 'anms.examples.crud2.title' | translate }}</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>{{ 'anms.examples.crud2.subtitle1' | translate }}</h2>
+      <mat-card *ngFor="let participant of participants$ | async" [ngClass]="routeAnimationsElements"
+        (click)=select(participant) data-testid="crud-item">
+        <h3 data-testid="item-title">{{participant.nom}}</h3>
+        <small>{{participant.option}}</small>
+        <button mat-icon-button color="accent" >
+          <fa-icon icon="edit" (click)="participant.option='parole'" [matTooltip]="'anms.examples.crud2.tooltip.edit' | translate"
+            matTooltipPosition="above">
+          </fa-icon>
+        </button>
+        <mat-slide-toggle (change)="onChange($event)" [checked]="participant.parole"></mat-slide-toggle>
+      </mat-card>
+      <p *ngIf="(participants$ | async)?.length === 0">{{'anms.examples.crud2.empty' | translate}}</p>
+      <button type="button" mat-fab color="primary" class="add" [ngClass]="routeAnimationsElements"
+      *ngIf="!isEditing" (click)="addNew(participantForm)" data-testid="add-crud">
+      <fa-icon icon="plus"></fa-icon>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <span class="d-flex justify-content-between">
+        <h2>{{ 'anms.examples.crud2.subtitle2' | translate }}</h2>
+        <span class="d-flex justify-content-end">
+          <span *ngIf="selectedParticipant$ | async as selectedParticipant">
+            <button mat-icon-button color="accent" *ngIf="!isEditing" data-testid="edit-crud">
+              <fa-icon icon="edit" (click)="edit(selectedParticipant)" [matTooltip]="'anms.examples.crud2.tooltip.edit' | translate"
+                matTooltipPosition="above">
+              </fa-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="delete(selectedParticipant)" data-testid="delete-crud">
+              <fa-icon icon="trash" [matTooltip]="'anms.examples.crud2.tooltip.delete' | translate"
+                matTooltipPosition="above">
+              </fa-icon>
+            </button>
+            <button mat-icon-button (click)="deselect()">
+              <fa-icon icon="times" [matTooltip]="'anms.examples.crud2.tooltip.deselect' | translate"
+                matTooltipPosition="above">
+              </fa-icon>
+            </button>
+          </span>
+        </span>
+      </span>
+
+      <form #participantForm="ngForm" [formGroup]="participantFormGroup" [style.display]="isEditing ? 'block' : 'none'"
+        [ngClass]="routeAnimationsElements">
+        <div class="row">
+          <mat-form-field class="col">
+            <input matInput placeholder="{{ 'anms.examples.crud2.placeholder1' | translate }}"
+              formControlName="nom" required autofocus>
+            <mat-error *ngIf="participantFormGroup.get('nom').invalid" data-testid="error-title-crud">
+              {{ 'anms.examples.crud2.placeholder1' | translate }}
+              {{ 'anms.examples.crud2.error' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col">
+            <input matInput placeholder="{{ 'anms.examples.crud2.placeholder2' | translate }}"
+              formControlName="option" required>
+            <mat-error *ngIf="participantFormGroup.get('option').hasError('required')" data-testid="error-author-crud">
+              {{ 'anms.examples.crud.placeholder2' | translate }}
+              {{ 'anms.examples.crud.error' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col">
+            <textarea matInput placeholder="{{ 'anms.examples.crud2.placeholder3' | translate }}"
+              formControlName="description" rows="5"></textarea>
+            <mat-error *ngIf="participantFormGroup.get('description').invalid">
+              {{ 'anms.examples.crud2.placeholder1' | translate }}
+              {{ 'anms.examples.crud2.error' | translate }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-between">
+            <button (click)="save()" mat-raised-button color="primary">
+              {{'anms.examples.crud2.save' | translate }}
+            </button>
+            <button (click)="cancelEditing()" mat-raised-button>
+              {{'anms.examples.crud2.cancel' | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <ng-container *ngIf="!isEditing">
+        <div [ngClass]="routeAnimationsElements" *ngIf="selectedParticipant$ | async as selectedParticipant; else noSelectedParticipantTmpl">
+          <h3>{{ selectedParticipant.nom }}</h3>
+          <mat-divider></mat-divider>
+          <p>{{ selectedParticipant.description }}</p>
+          <i>{{ selectedParticipant.option }}</i>
+        </div>
+
+        <ng-template #noSelectedParticipantTmpl>
+          <p [ngClass]="routeAnimationsElements">
+            {{'anms.examples.crud2.text' | translate }}
+          </p>
+        </ng-template>
+      </ng-container>
+
+    </div>
+
+  </div>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column-->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><div class="center">Position</div></th>
+      <td mat-cell *matCellDef="let element"> <div class="center">{{element.position}}</div> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+      <td mat-cell *matCellDef="let element"> <div class="center minw">{{element.nom}}</div> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+
+</div>

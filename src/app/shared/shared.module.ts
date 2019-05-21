@@ -21,9 +21,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatSliderModule } from '@angular/material/';
+import { MatSliderModule, MatSortModule } from '@angular/material/';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -94,6 +95,7 @@ library.add(
 import { BigInputComponent } from './big-input/big-input.component';
 import { BigInputActionComponent } from './big-input/big-input-action.component';
 import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
+import { GoogleAuthService } from '@app/core/auth/google-auth.service';
 
 @NgModule({
   imports: [
@@ -102,6 +104,8 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 
     TranslateModule,
 
+    MatSortModule,
+    MatTableModule,
     MatButtonModule,
     MatToolbarModule,
     MatSelectModule,
@@ -127,6 +131,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     BigInputActionComponent,
     RtlSupportDirective
   ],
+  providers: [GoogleAuthService],
   exports: [
     CommonModule,
     FormsModule,
@@ -134,6 +139,8 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
 
     TranslateModule,
 
+    MatSortModule,
+    MatTableModule,
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,

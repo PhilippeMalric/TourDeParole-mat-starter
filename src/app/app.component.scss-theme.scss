@@ -33,15 +33,15 @@
     }
 
     .footer {
-      color: mat-color($primary, lighter);
+      color: white;
       background-color: mat-color($primary, darker);
 
       .links,
       .signature {
         a {
-          color: mat-color($primary, lighter);
+          color: white;
           &:hover {
-            color: mat-color($accent);
+            color: rgb(141, 140, 140);
           }
         }
       }

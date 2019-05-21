@@ -9,6 +9,7 @@ import { AuthenticatedComponent } from './authenticated/authenticated.component'
 import { TodosContainerComponent } from './todos/components/todos-container.component';
 import { StockMarketContainerComponent } from './stock-market/components/stock-market-container.component';
 import { CrudComponent } from './crud/components/crud.component';
+import { CrudComponent2 } from './crud2/components/crud.component2';
 import { FormComponent } from './form/components/form.component';
 import { NotificationsComponent } from './notifications/components/notifications.component';
 
@@ -19,7 +20,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'todos',
+        redirectTo: 'crud2',
         pathMatch: 'full'
       },
       {
@@ -43,9 +44,19 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'crud2',
+        redirectTo: 'crud2/',
+        pathMatch: 'full'
+      },
+      {
         path: 'crud/:id',
         component: CrudComponent,
         data: { title: 'anms.examples.menu.crud' }
+      },
+      {
+        path: 'crud2/:id',
+        component: CrudComponent2,
+        data: { title: 'anms.examples.menu.crud2' }
       },
       {
         path: 'form',

@@ -11,8 +11,11 @@ import { StaticModule } from './static';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { FirebaseModule } from './shared/module/firebase.module';
+
 @NgModule({
   imports: [
+    FirebaseModule,
     // angular
     BrowserAnimationsModule,
     BrowserModule,

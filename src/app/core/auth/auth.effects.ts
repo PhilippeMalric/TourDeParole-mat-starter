@@ -11,12 +11,14 @@ import {
   ActionAuthLogout,
   AuthActionTypes
 } from './auth.actions';
+import { GoogleAuthService } from './google-auth.service';
 
 export const AUTH_KEY = 'AUTH';
 
 @Injectable()
 export class AuthEffects {
   constructor(
+    private googleAuth: GoogleAuthService,
     private actions$: Actions<Action>,
     private localStorageService: LocalStorageService,
     private router: Router
@@ -25,9 +27,10 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   login = this.actions$.pipe(
     ofType<ActionAuthLogin>(AuthActionTypes.LOGIN),
-    tap(() =>
-      this.localStorageService.setItem(AUTH_KEY, { isAuthenticated: true })
-    )
+    tap(() => {
+      this.googleAuth.googleSignIn();
+      this.localStorageService.setItem(AUTH_KEY, { isAuthenticated: true });
+    })
   );
 
   @Effect({ dispatch: false })
@@ -35,6 +38,7 @@ export class AuthEffects {
     ofType<ActionAuthLogout>(AuthActionTypes.LOGOUT),
     tap(() => {
       this.router.navigate(['']);
+      //this.googleAuth.logout();
       this.localStorageService.setItem(AUTH_KEY, { isAuthenticated: false });
     })
   );

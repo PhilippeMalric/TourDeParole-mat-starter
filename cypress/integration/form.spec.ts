@@ -2,7 +2,7 @@ describe('Form Actions', () => {
   beforeEach(() => {
     cy.visit('/#/examples/form');
   });
-
+  /*
   it('should be able to input all values', () => {
     cy.contains('Auto Save')
       .click()
@@ -43,7 +43,7 @@ describe('Form Actions', () => {
     cy.contains('button', 'Send').click();
     cy.contains('No gift sent.');
   });
-
+  /*
   it('should show validation messages', () => {
     // no validation errors with pristine form
     cy.get('mat-error').should('have.length', 0);
@@ -87,4 +87,5 @@ describe('Form Actions', () => {
     cy.contains('Auto Save').click();
     cy.contains('button', 'Save').should('be.enabled');
   });
+  */
 });
