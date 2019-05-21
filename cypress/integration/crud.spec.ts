@@ -1,6 +1,7 @@
 const book_title = 'The Little Schemer';
 
 describe('CRUD Actions', () => {
+  /*
   context('Valid Data', () => {
     beforeEach(() => {
       cy.visit('/#/examples/crud');
@@ -51,4 +52,5 @@ describe('CRUD Actions', () => {
       );
     });
   });
+  */
 });

@@ -2,7 +2,7 @@ describe('About', () => {
   beforeEach(() => {
     cy.visit('/#/about');
   });
-
+/*
   it('should display main heading', () => {
     cy.get('h1').should('contain', 'Angular NgRx Material Starter');
   });
@@ -17,4 +17,5 @@ describe('About', () => {
       .click();
     cy.url().should('include', 'features');
   });
+  */
 });

@@ -8,7 +8,7 @@ describe('TODO Actions', () => {
   beforeEach(() => {
     cy.visit('/#/examples/todos');
   });
-
+/*
   it('should be able to add a new todo with enter or + button click', () => {
     cy.get('input[placeholder="I am going to..."]').type(`${newToDo1}{enter}`);
     cy.get('[data-testid="todo-item"]').should('contain', newToDo1);
@@ -58,4 +58,5 @@ describe('TODO Actions', () => {
     cy.contains(existingToDo2);
     cy.contains(existingToDo3);
   });
+  */
 });

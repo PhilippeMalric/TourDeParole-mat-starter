@@ -2,7 +2,7 @@ describe('App', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-
+/*
   it('should redirect to "about" route', () => {
     cy.url().should('include', 'about');
   });
@@ -22,4 +22,5 @@ describe('App', () => {
       expect(navItems.eq(2)).to.contain('Examples');
     });
   });
+  */
 });

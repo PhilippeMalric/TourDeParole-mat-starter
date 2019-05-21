@@ -35,12 +35,7 @@
     "docker:prod-up": "docker-compose -f Production.docker-compose.yml up",
     "docker:prod-down": "docker-compose -f Production.docker-compose.yml down"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
+
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"

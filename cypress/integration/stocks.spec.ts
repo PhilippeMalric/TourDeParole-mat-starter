@@ -2,7 +2,7 @@ describe('STOCKS Actions', () => {
   beforeEach(() => {
     cy.visit('/#/examples/stock-market');
   });
-
+/*
   it('should display data for a valid stock symbol', () => {
     const goodStockSymbol = 'NVDA';
 
@@ -27,4 +27,5 @@ describe('STOCKS Actions', () => {
       .should('contain', 'not found')
       .should('contain', badStockSymbol);
   });
+  */
 });
